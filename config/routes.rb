@@ -54,9 +54,9 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  resources :products 
-  resources :managers
-  resources :clients
-  resources :orders
-  resources :client_managers
+  resources :products do
+	get :expensive, on: :collection
+	end
+  resources :managers, :clients, :orders, :client_managers
+
 end

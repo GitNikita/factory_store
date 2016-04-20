@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413071924) do
+ActiveRecord::Schema.define(version: 20160414010431) do
 
   create_table "client_managers", force: :cascade do |t|
     t.integer  "id_client"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20160413071924) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "id_client"
-    t.integer  "id_manager"
+    t.integer  "client_id"
+    t.integer  "manager_id"
     t.integer  "product"
     t.float    "price"
     t.float    "number"
@@ -47,14 +47,26 @@ ActiveRecord::Schema.define(version: 20160413071924) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "orders_products", id: false, force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "type_of_product"
     t.float    "price"
     t.string   "description"
-    t.integer  "presence"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "products", ["name"], name: "index_products_on_name"
