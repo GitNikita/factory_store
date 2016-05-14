@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414010431) do
+ActiveRecord::Schema.define(version: 20160514132028) do
 
   create_table "client_managers", force: :cascade do |t|
     t.integer  "id_client"
@@ -39,17 +39,11 @@ ActiveRecord::Schema.define(version: 20160414010431) do
   create_table "orders", force: :cascade do |t|
     t.integer  "client_id"
     t.integer  "manager_id"
-    t.integer  "product"
     t.float    "price"
     t.float    "number"
     t.float    "order_price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "orders_products", id: false, force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "product_id"
   end
 
   create_table "positions", force: :cascade do |t|

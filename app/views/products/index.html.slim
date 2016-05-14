@@ -1,0 +1,58 @@
+/ <h1>Products</h1>
+/ 
+/ <% if @products.empty? %>
+/ 	<b>No products</b>
+/ <% else %>
+/ <table>
+/ 	<tr>
+/ 		<th>Product id </th>
+/ 		<th>Name</th>
+/ 		<th>Type</th>
+/ 		<th>Price</th>
+/ 		<th>Description</th>
+/ 	</tr>
+/ 	
+/ 	<% @products.each do |i| %>
+/ 	<tr>
+/ 		<td><%= i.id %></td>
+/ 		<td><%= link_to i.name, product_path(i) %></td>
+/ 		<td><%= i.type_of_product %></td>
+/ 		<td><%= i.price %> Руб.</td>
+/ 		<td><%= i.description %></td>
+/ 		<td><%= link_to "Удалить продукт", i, method: :delete, data: { confirm: "Вы уверены?"}%></td>
+/ 	</tr>
+/ 	<% end %>
+/ </table>
+/   <% end %>
+
+h1 Products
+
+
+- if @products.empty?
+  h3 No products
+- else
+  table.table.table-striped
+    tr
+      th Name
+      th Type
+      th Price
+      th Description
+      th 
+        = link_to "Добавить продукт", new_product_path, class: 'btn btn-primary'
+    
+    
+    - @products.each do |i|
+      tr
+        td= link_to i.name, product_path(i)
+        td= i.type_of_product
+        td= i.price
+        td= i.description
+        td
+          div.btn-group style='width: 286px;'
+            = link_to "Изменить продукт", edit_product_path(i), class: 'btn btn-warning'
+            = link_to "Удалить продукт", i, method: :delete, data: { confirm: "Вы уверены?"}, class: 'btn btn-danger'
+          
+            
+            
+    
+  

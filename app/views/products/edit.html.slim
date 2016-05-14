@@ -1,0 +1,16 @@
+/ <h1>Edit product</h1>
+/ 
+/ <%= form_for @product do |f| %>
+/ 	<p>Название: <br/><%= f.text_field :name %></p>
+/ 	<p>Тип: <br/><%= f.text_field :type_of_product %></p>
+/ 	<p>Цена: <br/><%= f.text_field :price %></p>
+/ 	<p>Описание: <br/><%= f.text_field :description %></p>
+/ 	
+/ 	<p><%= f.submit "Сохранить продукт" %></p>
+/ <% end %>
+= simple_form_for @product do |f|
+  = f.input :name
+  = f.input :type_of_product
+  = f.input :price
+  = f.input :description
+  = f.submit 'Сохранить продукт'
