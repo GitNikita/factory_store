@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: [:edut, :update, :destroy]
+  before_action :find_product, only: [:edit, :update, :destroy]
   before_action :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
 
   def index
@@ -46,8 +46,6 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :type_of_product, :price, :description)
   end
-
-  private
 
   def find_product
     @product = Product.find(params[:id])

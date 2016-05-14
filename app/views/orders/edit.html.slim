@@ -1,0 +1,24 @@
+= simple_form_for @order do |f|
+  = simple_fields_for @position do |i|
+    = i.association :product
+    = i.input :quantity
+  = f.submit
+
+- unless @order.positions.empty?
+  br
+
+table.table.table-striped
+  tr
+    th name
+    th quantity
+    th
+
+  - @order.positions.each do |i|
+    tr
+      td= i.product.name
+      td= i.quantity
+      td
+        div.btn-group style='width: 286px;'
+            / = link_to "Изменить продукт", edit_position_path(i), class: 'btn btn-warning'
+
+= link_to 'Оформить заказ', make_order_path(@order), class: 'btn btn-success'

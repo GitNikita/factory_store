@@ -1,0 +1,28 @@
+h1 Managers
+
+- if @managers.empty?
+  h3 No managers
+  = link_to "Добавит менеджера", new_manager_path, class: 'btn btn-primary'
+- else
+  table.table.table-striped
+    tr
+      th Name
+      th Phone
+      th Email
+      th 
+        = link_to "Добавить менеджера", new_manager_path, class: 'btn btn-primary'
+    
+    
+    - @managers.each do |i|
+      tr
+        td= link_to i.name, manager_path(i)
+        td= i.phone
+        td= i.email
+        td
+          div.btn-group style='width: 450px;'
+            = link_to "Изменить информацию менеджера", edit_manager_path(i), class: 'btn btn-warning'
+            = link_to "Удалить менеджера", i, method: :delete, data: { confirm: "Вы уверены?"}, class: 'btn btn-danger'
+          
+            
+            
+    

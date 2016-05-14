@@ -1,0 +1,27 @@
+h1 Clients
+- if @clients.empty?
+  h3 No clients
+  = link_to "Добавить клиента", new_client_path, class: 'btn btn-primary'
+- else
+  table.table.table-striped
+    tr
+      th Name
+      th Phone
+      th Email
+      th 
+        = link_to "Добавить клиента", new_client_path, class: 'btn btn-primary'
+    
+    
+    - @clients.each do |i|
+      tr
+        td= link_to i.name, client_path(i)
+        td= i.phone
+        td= i.email
+        td
+          div.btn-group style='width: 450px;'
+            = link_to "Изменить информацию клиента", edit_client_path(i), class: 'btn btn-warning'
+            = link_to "Удалить клиента", i, method: :delete, data: { confirm: "Вы уверены?"}, class: 'btn btn-danger'
+          
+            
+            
+    

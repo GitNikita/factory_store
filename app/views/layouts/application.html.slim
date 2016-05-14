@@ -19,6 +19,7 @@ html lang="en"
 
 
   body
+    - console
     .navbar.navbar-default.navbar-static-top
         .container
           button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
@@ -30,7 +31,6 @@ html lang="en"
             ul.nav.navbar-nav
               li= link_to 'product', products_path 
               li= link_to 'manager', managers_path
-              li= link_to 'clients manager', client_managers_path
               li= link_to 'orders', orders_path
               li= link_to 'clients', clients_path
 

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  resources :products
-  resources :managers, :clients, :orders, :client_managers
+  resources :products, :managers, :clients, :orders
+  get 'orders/:id/make' => 'orders#make', as: :make_order
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

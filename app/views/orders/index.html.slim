@@ -1,0 +1,24 @@
+h1 Orders
+
+= link_to 'Создать заказ', new_order_path, class: 'btn btn-primary'
+br
+br
+- if @orders.empty?
+  h3 No products
+  = link_to "Добавит продукт", new_product_path, class: 'btn btn-primary'
+- else
+  table.table.table-striped
+    tr
+      th manager
+      th client
+      th Description
+      th Price
+      th DateTime
+    
+    - @orders.each do |i|
+      tr
+        td= i.manager.name
+        td= i.client.name
+        td= i.products.pluck(:name).join(', ')
+        td= i.order_price
+        td= i.maked_time

@@ -1,0 +1,5 @@
+= simple_form_for @order do |f|
+  = f.association :manager
+  = f.association :client
+  = f.submit 'create order'
+  
