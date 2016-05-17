@@ -1,6 +1,7 @@
 class ManagersController < ApplicationController
   before_action :find_manager, only: [:edit, :update, :destroy]
   before_action :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
+  before_filter :authenticate_user!
 
   def index
     @managers = Manager.all

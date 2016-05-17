@@ -1,6 +1,4 @@
-h1 
-  = @product.name
-ul
-  li= @product.type_of_product
-  li= @product.price
-  li= @product.description
+h1= @product.name
+p= "Тип: #{@product.type_of_product}"
+p= "Цена: #{@product.price}"
+p= "Описание: #{@product.description}"

@@ -1,11 +1,10 @@
-h1 Orders
-
+h1 Заказы
 = link_to 'Создать заказ', new_order_path, class: 'btn btn-primary'
 br
 br
 - if @orders.empty?
   h3 No products
-  = link_to "Добавит продукт", new_product_path, class: 'btn btn-primary'
+  = link_to "Добавит заказ", new_product_path, class: 'btn btn-primary'
 - else
   table.table.table-striped
     tr
@@ -14,6 +13,7 @@ br
       th Description
       th Price
       th DateTime
+      th
     
     - @orders.each do |i|
       tr
@@ -22,3 +22,4 @@ br
         td= i.products.pluck(:name).join(', ')
         td= i.order_price
         td= i.maked_time
+        td= link_to "Показать", order_path(i), class: 'btn btn-primary'

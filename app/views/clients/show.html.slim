@@ -1,5 +1,4 @@
-h1 
-  = @client.name
-ul
-  li= @client.phone
-  li= @client.email
+h1= @client.name
+p= "Имя: #{@client.name}"
+p= "Телефон: #{@client.phone}"
+p= "Почта: #{@client.email}"

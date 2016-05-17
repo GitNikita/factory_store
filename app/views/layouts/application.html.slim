@@ -19,20 +19,27 @@ html lang="en"
 
 
   body
-    - console
     .navbar.navbar-default.navbar-static-top
         .container
           button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#"MyFinalProject
+          = link_to 'MyFinalProject', root_path, class: 'navbar-brand'
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
-              li= link_to 'product', products_path 
-              li= link_to 'manager', managers_path
-              li= link_to 'orders', orders_path
-              li= link_to 'clients', clients_path
+              li= link_to 'Продукция', products_path 
+              - if user_signed_in?
+                li= link_to 'Менеджеры', managers_path
+                li= link_to 'Заказы', orders_path
+                li= link_to 'Клиенты', clients_path
+                
+            ul.nav.navbar-nav.pull-right
+              - if user_signed_in?
+                li= link_to 'выйти', destroy_user_session_path, method: :delete
+              - else
+                li= link_to 'войти', new_user_session_path
+                li= link_to 'регистрация', new_user_registration_path
 
     .container
       .row
@@ -47,8 +54,8 @@ html lang="en"
         /       li= link_to "Link 1", "/path1"
         /       li= link_to "Link 2", "/path2"
         /       li= link_to "Link 3", "/path3"
-
-      footer
-        br 
-        br
-        p &copy; Shamrov Nikita ITb-122 2016
+    div.navbar-fixed-bottom
+      hr
+      div.navbar-inner.container
+        footer
+          p &copy; Shamrov Nikita ITb-122 2016

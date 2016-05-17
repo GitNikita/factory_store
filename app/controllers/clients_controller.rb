@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   before_action :find_client, only: [:edit, :update, :destroy]
   before_action :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
+  before_filter :authenticate_user!
   def index
     @clients = Client.all
   end

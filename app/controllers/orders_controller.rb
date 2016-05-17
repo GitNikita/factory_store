@@ -1,9 +1,12 @@
 class OrdersController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @orders = Order.maked
   end
 
   def show
+    @order = Order.find_by_id(params[:id])
   end
 
   def new

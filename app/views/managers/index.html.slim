@@ -1,4 +1,4 @@
-h1 Managers
+h1 Менеджеры
 
 - if @managers.empty?
   h3 No managers
@@ -19,7 +19,7 @@ h1 Managers
         td= i.phone
         td= i.email
         td
-          div.btn-group style='width: 450px;'
+          div.btn-group style='width: 500px;'
             = link_to "Изменить информацию менеджера", edit_manager_path(i), class: 'btn btn-warning'
             = link_to "Удалить менеджера", i, method: :delete, data: { confirm: "Вы уверены?"}, class: 'btn btn-danger'
           

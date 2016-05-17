@@ -1,0 +1,21 @@
+h1= @order.maked_time
+p= "Клиент: #{@order.client.name}"
+p= "Менеджер: #{@order.manager.name}"
+p= "Сумма заказа: #{@order.order_price} Руб"
+
+table.table.table-striped
+  tr
+    th Name
+    th Type
+    th Price
+    th Quantity
+  - @order.positions.each do |i|
+    tr
+      td= link_to i.product.name, product_path(i.product)
+      td= i.product.type_of_product
+      td= i.product.price
+      td= i.quantity
+      
+  button.btn.btn-primary.hidden-print onclick="window.print();" Печать
+  br
+  br

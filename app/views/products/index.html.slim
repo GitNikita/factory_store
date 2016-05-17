@@ -1,15 +1,15 @@
-h1 Products
+h1 Продукция
 
 - if @products.empty?
-  h3 No products
+  h3 Нет продукции
   = link_to "Добавит продукт", new_product_path, class: 'btn btn-primary'
 - else
   table.table.table-striped
     tr
-      th Name
-      th Type
-      th Price
-      th Description
+      th Название
+      th Тип
+      th Цена
+      th Описание
       th 
         = link_to "Добавить продукт", new_product_path, class: 'btn btn-primary'
     
@@ -21,7 +21,7 @@ h1 Products
         td= i.price
         td= i.description
         td
-          div.btn-group style='width: 286px;'
+          div.btn-group style='width: 350px;'
             = link_to "Изменить продукт", edit_product_path(i), class: 'btn btn-warning'
             = link_to "Удалить продукт", i, method: :delete, data: { confirm: "Вы уверены?"}, class: 'btn btn-danger'
           

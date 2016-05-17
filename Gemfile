@@ -5,8 +5,11 @@ gem 'rails', '4.2.5.1'
 gem 'slim-rails'
 gem 'russian_central_bank'
 gem 'simple_form'
+gem 'spreadsheet'
+gem 'exception_handler', '~> 0.5.0' #-> Gemfile
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'

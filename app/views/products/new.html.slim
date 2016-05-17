@@ -1,17 +1,6 @@
-/ <h1>Create new product</h1>
-/ 
-/ <%= form_for @product do |f| %>
-/ 	<p>Название: <br/><%= f.text_field :name %></p>
-/ 	<p>Тип: <br/><%= f.text_field :type_of_product %></p>
-/ 	<p>Цена: <br/><%= f.text_field :price %></p>
-/ 	<p>Описание: <br/><%= f.text_field :description %></p>
-/ 	
-/ 	<p><%= f.submit "Создать продукт" %></p>
-/ <% end %>
-
 = simple_form_for @product do |f|
-  = f.input :name
+  = f.input :name, label: 'Имя'
   = f.input :type_of_product
   = f.input :price
   = f.input :description
-  = f.submit 'Создать продукт'
+  = f.submit 'Создать продукт', class: 'btn btn-primary'

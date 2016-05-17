@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'welcome/index'
   resources :products, :managers, :clients, :orders
   get 'orders/:id/make' => 'orders#make', as: :make_order
