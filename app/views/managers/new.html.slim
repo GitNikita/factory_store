@@ -1,5 +1,5 @@
 = simple_form_for @manager do |f|
-  = f.input :name
-  = f.input :phone
-  = f.input :email
-  = f.submit 'Создать менеджера'
+  = f.input :name, label: 'Имя'
+  = f.input :phone, label: 'Телефон'
+  = f.input :email, label: 'Почта'
+  = f.submit 'Создать менеджера', class: 'btn btn-primary'

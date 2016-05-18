@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.state = 'issue'
+    @order.state = 'не готов'
     if @order.save
       redirect_to edit_order_path(@order)
     else
@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find_by_id(params[:id])
-    if @order.state == 'issue'
+    if @order.state == 'не готов'
       @position = Position.new(position_params)
       @order.positions << @position
 
@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
   def make
     @order = Order.find_by_id(params[:id])
     @order.order_price = @order.calc_price
-    @order.state = 'waiting'
+    @order.state = 'готов'
     @order.maked_time = DateTime.now
     if @order.save
       redirect_to action: 'index'

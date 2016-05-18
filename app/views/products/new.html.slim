@@ -1,6 +1,6 @@
 = simple_form_for @product do |f|
-  = f.input :name, label: 'Имя'
-  = f.input :type_of_product
-  = f.input :price
-  = f.input :description
+  = f.input :name, label: 'Название'
+  = f.input :type_of_product, label: 'Тип'
+  = f.input :price, label: 'Цена'
+  = f.input :description, label: 'Описание'
   = f.submit 'Создать продукт', class: 'btn btn-primary'

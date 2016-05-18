@@ -1,10 +1,12 @@
 class Order < ActiveRecord::Base
+  validates :manager, :client, presence: true
+
   belongs_to :client
   belongs_to :manager
   has_many :positions
   has_many :products, through: :positions
 
-  scope :maked, -> { where(state: 'waiting') }
+  scope :maked, -> { where(state: 'готов') }
 
   def calc_price
     positions.map(&:calc_price).sum

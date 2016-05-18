@@ -1,18 +1,17 @@
 h1 Заказы
-= link_to 'Создать заказ', new_order_path, class: 'btn btn-primary'
+=link_to 'Создать заказ', new_order_path, class: 'btn btn-primary'
 br
 br
 - if @orders.empty?
-  h3 No products
-  = link_to "Добавит заказ", new_product_path, class: 'btn btn-primary'
+  h3 Нет заказов
 - else
   table.table.table-striped
     tr
-      th manager
-      th client
-      th Description
-      th Price
-      th DateTime
+      th Менеджер
+      th Клиент
+      th Описание
+      th Цена
+      th Время заказа
       th
     
     - @orders.each do |i|

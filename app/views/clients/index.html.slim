@@ -1,13 +1,13 @@
 h1 Клиенты
 - if @clients.empty?
-  h3 No clients
+  h3 Нет клиентов
   = link_to "Добавить клиента", new_client_path, class: 'btn btn-primary'
 - else
   table.table.table-striped
     tr
-      th Name
-      th Phone
-      th Email
+      th Имя
+      th Телефон
+      th Почта
       th 
         = link_to "Добавить клиента", new_client_path, class: 'btn btn-primary'
     

@@ -1,5 +1,5 @@
 = simple_form_for @order do |f|
-  = f.association :manager
-  = f.association :client
-  = f.submit 'create order'
+  = f.association :manager, label: 'Менеджер'
+  = f.association :client, label: 'Клиент'
+  = f.submit 'Создать заказ', class: 'btn btn-primary'
   

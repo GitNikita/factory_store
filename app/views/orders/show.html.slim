@@ -5,10 +5,10 @@ p= "Сумма заказа: #{@order.order_price} Руб"
 
 table.table.table-striped
   tr
-    th Name
-    th Type
-    th Price
-    th Quantity
+    th Название
+    th Тип
+    th Цена
+    th Количество
   - @order.positions.each do |i|
     tr
       td= link_to i.product.name, product_path(i.product)

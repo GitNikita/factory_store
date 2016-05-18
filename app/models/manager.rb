@@ -1,5 +1,6 @@
 class Manager < ActiveRecord::Base
-  has_many :clients
+  validates :name, :phone, :email, presence: true
 
+  has_many :clients
   has_many :client_managers
 end

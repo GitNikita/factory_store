@@ -2,8 +2,12 @@ h1 Продукция
 
 - if @products.empty?
   h3 Нет продукции
-  = link_to "Добавит продукт", new_product_path, class: 'btn btn-primary'
 - else
+- if user_signed_in?
+  = link_to "Добавить продукт", new_product_path, class: 'btn btn-primary'
+br
+br
+  
   table.table.table-striped
     tr
       th Название
@@ -11,7 +15,6 @@ h1 Продукция
       th Цена
       th Описание
       th 
-        = link_to "Добавить продукт", new_product_path, class: 'btn btn-primary'
     
     
     - @products.each do |i|
@@ -21,10 +24,11 @@ h1 Продукция
         td= i.price
         td= i.description
         td
-          div.btn-group style='width: 350px;'
+          div.btn-group style='width: 400px;'
+          - if user_signed_in?
             = link_to "Изменить продукт", edit_product_path(i), class: 'btn btn-warning'
             = link_to "Удалить продукт", i, method: :delete, data: { confirm: "Вы уверены?"}, class: 'btn btn-danger'
-          
+          - else
             
             
     

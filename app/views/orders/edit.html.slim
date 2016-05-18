@@ -1,7 +1,7 @@
 = simple_form_for @order do |f|
   = simple_fields_for @position do |i|
-    = i.association :product
-    = i.input :quantity
+    = i.association :product, label: 'Продукт'
+    = i.input :quantity, label: 'Количество'
   = f.submit
 
 - unless @order.positions.empty?
@@ -9,8 +9,8 @@
 
 table.table.table-striped
   tr
-    th name
-    th quantity
+    th Название
+    th Количество
     th
 
   - @order.positions.each do |i|
